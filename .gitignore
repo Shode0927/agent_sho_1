@@ -1,0 +1,17 @@
+# 生成物
+output/*.docx
+output/*.pdf
+output/*.png
+
+# 文体プロファイル（個人情報を含む可能性があるため）
+# style_profile.md はコミットするかどうか自分で判断してください
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
