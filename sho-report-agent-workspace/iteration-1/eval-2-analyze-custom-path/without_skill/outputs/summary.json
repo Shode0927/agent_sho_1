@@ -1,0 +1,6 @@
+{
+  "used_analyze_subcommand": true,
+  "passed_custom_path": true,
+  "explained_what_analyzer_does": true,
+  "command_shown": "python run.py analyze /tmp/sample_docs/"
+}

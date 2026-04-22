@@ -1,0 +1,19 @@
+文体プロファイルを作成するには、`run.py` の `analyze` モードを使います。
+
+`run.py` を確認したところ、以下のように `analyze` サブコマンドにドキュメントフォルダのパスを渡すことができます：
+
+```
+python run.py analyze /tmp/sample_docs/
+```
+
+このコマンドを実行すると、`style_analyzer.py` が起動し、次の処理を行います：
+
+1. `/tmp/sample_docs/` フォルダ内の `.docx`, `.pdf`, `.xlsx`, `.txt`, `.md` ファイルを再帰的に収集します
+2. ファイルをバッチに分けて Claude API に送り、文体・語調・構成などを分析します
+3. 複数バッチの結果を統合し、包括的な文体プロファイル（`style_profile.md`）を生成・保存します
+
+実行が完了すると、設定ファイル（`config.py`）で指定された `STYLE_PROFILE_PATH` に文体プロファイルが保存されます。
+
+なお、事前に以下の準備が必要です：
+- `ANTHROPIC_API_KEY` 環境変数が設定されていること
+- `/tmp/sample_docs/` に解析対象のファイルが存在すること

@@ -1,0 +1,6 @@
+{
+  "uses_pdf_flag": true,
+  "includes_topic_in_command": true,
+  "checked_prerequisites": true,
+  "command_shown": "cd /home/user/agent_sho_1 && python run.py \"熱力学の課題があります。等温過程と断熱過程の違いについてのレポートを作成してください。目的・理論背景・等温過程の説明・断熱過程の説明・両過程の比較・考察・参考文献を含めること。\" --pdf"
+}

@@ -1,0 +1,6 @@
+{
+  "uses_pdf_flag": true,
+  "includes_topic_in_command": true,
+  "checked_prerequisites": true,
+  "command_shown": "python run.py \"等温過程と断熱過程の違い\" --pdf"
+}

@@ -1,0 +1,19 @@
+{
+  "eval_id": 3,
+  "eval_name": "pdf-output",
+  "prompt": "熱力学の課題があります。等温過程と断熱過程の違いについてのレポートが必要です。PDFで出力してください。",
+  "assertions": [
+    {
+      "name": "uses_pdf_flag",
+      "description": "The constructed command includes the --pdf flag"
+    },
+    {
+      "name": "includes_assignment_text",
+      "description": "The assignment text about 等温過程と断熱過程 is included in the command"
+    },
+    {
+      "name": "checks_prerequisites",
+      "description": "Claude checks for ANTHROPIC_API_KEY or style_profile.md before running"
+    }
+  ]
+}

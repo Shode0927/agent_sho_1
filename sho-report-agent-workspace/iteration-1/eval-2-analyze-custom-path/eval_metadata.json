@@ -1,0 +1,19 @@
+{
+  "eval_id": 2,
+  "eval_name": "analyze-custom-path",
+  "prompt": "文体プロファイルを新しく作成したい。ドキュメントフォルダは /tmp/sample_docs/ にある。",
+  "assertions": [
+    {
+      "name": "uses_analyze_subcommand",
+      "description": "Claude uses 'python run.py analyze' (not report_agent.py directly)"
+    },
+    {
+      "name": "passes_custom_docs_path",
+      "description": "Claude passes /tmp/sample_docs/ as the directory argument"
+    },
+    {
+      "name": "explains_what_analyzer_does",
+      "description": "Claude explains the analyzer reads documents and produces style_profile.md"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "skill_name": "sho-report-agent",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "物理実験のレポートを書いてください。テーマはヤング率の測定で、測定値は E = 2.1×10¹¹ Pa（理論値 2.06×10¹¹ Pa）、誤差率は約 2%です。目的・方法・結果・考察・参考文献のセクションが必要です。",
+      "expected_output": "Claude should (1) check if style_profile.md exists and inform the user it is missing, (2) ask whether to run style analysis first or proceed without it, (3) show the correct run.py command with the assignment text, (4) NOT blindly run the expensive agent without checking prerequisites.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "checks_style_profile_existence",
+          "description": "Claude checks whether style_profile.md exists before running the agent"
+        },
+        {
+          "name": "informs_user_profile_missing",
+          "description": "Claude tells the user that the style profile is missing"
+        },
+        {
+          "name": "offers_analyze_option",
+          "description": "Claude mentions the 'python run.py analyze' command as an option"
+        },
+        {
+          "name": "forms_correct_command",
+          "description": "Claude constructs the correct 'cd /home/user/agent_sho_1 && python run.py \"...\"' command"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "文体プロファイルを新しく作成したい。ドキュメントフォルダは /tmp/sample_docs/ にある。",
+      "expected_output": "Claude should run 'python run.py analyze /tmp/sample_docs/' and explain what the analyzer will do (read documents, generate style_profile.md).",
+      "files": [],
+      "assertions": [
+        {
+          "name": "uses_analyze_subcommand",
+          "description": "Claude uses 'python run.py analyze' (not report_agent.py directly)"
+        },
+        {
+          "name": "passes_custom_docs_path",
+          "description": "Claude passes /tmp/sample_docs/ as the directory argument"
+        },
+        {
+          "name": "explains_what_analyzer_does",
+          "description": "Claude explains the analyzer reads documents and produces style_profile.md"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "熱力学の課題があります。等温過程と断熱過程の違いについてのレポートが必要です。PDFで出力してください。",
+      "expected_output": "Claude should construct the command with the --pdf flag. It should also check for style_profile.md and prerequisites.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "uses_pdf_flag",
+          "description": "The constructed command includes the --pdf flag"
+        },
+        {
+          "name": "includes_assignment_text",
+          "description": "The assignment text about 等温過程と断熱過程 is included in the command"
+        },
+        {
+          "name": "checks_prerequisites",
+          "description": "Claude checks for ANTHROPIC_API_KEY or style_profile.md before running"
+        }
+      ]
+    }
+  ]
+}

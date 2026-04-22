@@ -1,0 +1,35 @@
+承知しました。等温過程と断熱過程の違いについてのPDFレポートを作成します。
+
+## 前提条件の確認
+
+**依存パッケージの確認:**
+`anthropic`, `docx`, `reportlab`, `matplotlib` モジュールが見つかりません。まず依存パッケージをインストールします：
+
+```bash
+pip install -r /home/user/agent_sho_1/requirements.txt
+```
+
+**文体プロファイルの確認:**
+`style_profile.md` が見つかりません（MISSING）。
+
+文体プロファイルがまだありません。`python run.py analyze` を実行して文体を学習させますか？
+（OneDriveのドキュメントフォルダにアクセスできる必要があります）
+
+文体プロファイルを作成するには：
+```bash
+cd /home/user/agent_sho_1 && python run.py analyze
+```
+
+## レポート生成コマンド
+
+前提条件が整ったら、以下のコマンドでPDFレポートを生成してください：
+
+```bash
+cd /home/user/agent_sho_1 && python run.py "熱力学の課題があります。等温過程と断熱過程の違いについてのレポートを作成してください。目的・理論背景・等温過程の説明・断熱過程の説明・両過程の比較・考察・参考文献を含めること。" --pdf
+```
+
+エージェントがWebで調査を行い、必要に応じてグラフや数式（PV線図など）を含めながらレポートを作成します。完了後、出力ファイルのパスが表示されます：
+
+```
+📄 出力ファイル: /home/user/agent_sho_1/output/<filename>.pdf
+```

@@ -1,0 +1,29 @@
+文体プロファイルの新規作成について
+
+現在の状態を確認したところ、`style_profile.md` がまだ存在していません（MISSING）。
+
+ドキュメントフォルダ `/tmp/sample_docs/` を使って文体プロファイルを作成するには、以下のコマンドを実行します：
+
+```bash
+cd /home/user/agent_sho_1 && python run.py analyze /tmp/sample_docs/
+```
+
+このコマンドが行うこと：
+- `style_analyzer.py` が `/tmp/sample_docs/` フォルダ内の `.docx`、`.pdf`、`.xlsx`、`.txt`、`.md` ファイルを読み込みます
+- それらのファイルから文体・語彙・文章構成のパターンを解析します
+- 解析結果を `/home/user/agent_sho_1/style_profile.md` として保存します
+- この `style_profile.md` は、以後のレポート生成時に中沢頌さんの個人的な文体を再現するために使用されます
+
+文体プロファイルの作成は一度実行すれば完了です（文書が更新された場合は再実行することで最新の文体プロファイルに更新できます）。
+
+プロファイルが作成されたあとは、以下のようにレポートを生成できます：
+
+```bash
+# DOCXで出力（デフォルト）
+cd /home/user/agent_sho_1 && python run.py "課題テキストをここに書く"
+
+# PDFで出力する場合
+cd /home/user/agent_sho_1 && python run.py "課題テキストをここに書く" --pdf
+```
+
+注意：現在 `/tmp/sample_docs/` ディレクトリが存在しないため、実際のコマンド実行はスキップしています。ディレクトリが用意できたら上記コマンドを実行してください。
